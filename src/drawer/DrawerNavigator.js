@@ -7,8 +7,8 @@ import {allImages} from '../utils/images';
 const Drawer = createDrawerNavigator();
 
 const CustomDrawerContent = ({navigation}) => (
-  <View className="flex-1 ">
-    <View className="">
+  <View style={{flex: 1}}>
+    <View>
       <TouchableOpacity onPress={() => navigation.navigate('Logs')}>
         <Image
           // className="w-[281px] h-[154px]"
@@ -17,12 +17,11 @@ const CustomDrawerContent = ({navigation}) => (
         />
       </TouchableOpacity>
     </View>
-    <View className="-mt-5 mr-1">
-      <Text className="text-right text-whiteC text-[10px]">
-        V0.0.1
-      </Text>
+    <View style={{marginTop: -20, marginRight: -4}}>
+      
+      <Text className="text-right text-whiteC text-[10px]">V0.0.1</Text>
     </View>
-    <View className="mx-0 mt-3">
+    <View className="mx-0 mt-3" style={{marginHorizontal: 0, marginTop: 12}}>
       <TouchableOpacity
         className="  text-lg text-blackC flex-row items-center px-8 h-14 border-b-[0.5px] border-Cgray50 "
         onPress={() => navigation.navigate('Logs')}>
@@ -74,7 +73,6 @@ const CustomDrawerContent = ({navigation}) => (
         <Text className="  text-lg text-blackC ">Profile</Text>
       </TouchableOpacity>
     </View>
-    
   </View>
 );
 const DrawerNavigator = () => {
