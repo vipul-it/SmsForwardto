@@ -112,14 +112,19 @@ const SwiperInputForm = () => {
               source={allImages.HelpCircle}
             />
           </View>
-          <View className="flex-row items-center my-1 mt-2">
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginVertical: 8,
+            }}>
             <CustomCheckbox
               label="Allow sending Bank, Insurance OTP, PIN and Password."
               isChecked={isChecked}
               onChange={handleCheckboxChange}
             />
           </View>
-          <View className="flex-row items-center my-1">
+          <View>
             <CustomCheckbox
               label="Forwording all Messages"
               isChecked={isChecked2}
@@ -407,7 +412,6 @@ const SwiperInputForm = () => {
                 <Text>{'         '}</Text>
               </View>
               <Text
-                className=" border-b-[1px] border-primary mb-5"
                 style={{
                   borderBottomWidth: 1,
                   borderColor: '#726DA8',
