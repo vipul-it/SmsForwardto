@@ -9,7 +9,7 @@ const CustomCheckbox = ({label, isChecked, onChange}) => {
       <View style={[styles.checkbox, isChecked && styles.checked]}>
         {isChecked && <Text style={styles.checkIcon}>✓</Text>}
       </View>
-      <Text className="text-blackC2 break-words mr-8">{label}</Text>
+      <Text style={{color: '#1E1E1E', flexWrap: 'wrap', marginRight: 32}} >{label}</Text>
     </TouchableOpacity>
   );
 };

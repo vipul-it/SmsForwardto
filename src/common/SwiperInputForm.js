@@ -1,9 +1,17 @@
 import React, {useState} from 'react';
-import {View, TextInput, Button, Text, StyleSheet, Image} from 'react-native';
+import {
+  View,
+  TextInput,
+  Button,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import Swiper from 'react-native-swiper';
 import {allImages} from '../utils/images';
 import CustomCheckbox from './CustomCheckbox';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 
 const SwiperInputForm = () => {
@@ -43,30 +51,45 @@ const SwiperInputForm = () => {
   };
 
   return (
-    <View>
+    <View style={{flex: 1}}>
       <Swiper
         dotStyle={styles.dot}
         activeDotStyle={styles.activeDot}
         loop={false} // Set other props as needed
       >
-        <View className="mx-5">
-          <View className="flex-row items-center">
-            <Text className="text-blackC2 text-xl font-bold">
+        <View style={{marginHorizontal: 20}}>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Text style={{color: '#1E1E1E', fontSize: 20, fontWeight: 700}}>
               Set up recipients
             </Text>
             <Image
-              style={{resizeMode: 'contain'}}
-              className="w-[20px] h-[20px] ml-2"
+              style={{
+                resizeMode: 'contain',
+                width: 20,
+                height: 20,
+                marginLeft: 6,
+              }}
               source={allImages.HelpCircle}
             />
           </View>
-          <Text className="text-blackC2 my-1">
+          <Text style={{color: '#1E1E1E', marginVertical: 4}}>
             Add the Number, Email or Emp ID which will receive the messages.
           </Text>
-          <Text className="text-blackC2 mt-5">Email or Phone Number</Text>
-          <View className=" my-2 border-[1px] border-primary rounded-lg flex-row items-center px-3">
+          <Text style={{color: '#1E1E1E', marginTop: 20}}>
+            Email or Phone Number
+          </Text>
+          <View
+            style={{
+              marginVertical: 8,
+              borderWidth: 1,
+              borderColor: '#726DA8',
+              borderRadius: 8,
+              flexDirection: 'row',
+              alignItems: 'center',
+              paddingHorizontal: 12,
+            }}>
             <TextInput
-              className="w-full text-blackC"
+              style={{width: '100%', color: '#1E1E1E'}}
               value={inputValues}
               onChangeText={setInputValues}
             />
@@ -74,14 +97,18 @@ const SwiperInputForm = () => {
         </View>
 
         {/* Handle for 2nd form submission */}
-        <View className="mx-5">
-          <View className="flex-row items-center">
-            <Text className="text-blackC2 text-xl font-bold">
+        <View style={{marginHorizontal: 20}}>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Text style={{color: '#1E1E1E', fontSize: 20, fontWeight: 700}}>
               Forwarding conditions
             </Text>
             <Image
-              style={{resizeMode: 'contain'}}
-              className="w-[20px] h-[20px] ml-2"
+              style={{
+                resizeMode: 'contain',
+                width: 20,
+                height: 20,
+                marginLeft: 8,
+              }}
               source={allImages.HelpCircle}
             />
           </View>
@@ -101,167 +128,303 @@ const SwiperInputForm = () => {
           </View>
         </View>
         {/* Handle for 3rd form submission */}
-        <View className="mx-5">
-          <View className="">
-            <Text className="text-blackC2 text-xl font-bold">
-              Change the Content
-            </Text>
-            <Text className="text-blackC2 my-1">
-              Change the content of the message, add the phone number of the
-              initial sender of the message, a specific word etc, to the message
-              you wish to forward.
-            </Text>
-          </View>
-
-          <View className=" my-2 border-[1px] border-primary rounded px-3">
-            <View className="flex-row justify-between items-center">
-              <Text>{'       '}</Text>
-              <Text className="text-blackC2 mt-5 text-lg font-semibold">
-                Message Template
+        <ScrollView>
+          <View style={{marginHorizontal: 20}}>
+            <View>
+              <Text style={{color: '#1E1E1E', fontSize: 20, fontWeight: 700}}>
+                Change the Content
               </Text>
-              <Image
-                style={{resizeMode: 'contain', tintColor: '#726DA8'}}
-                className="w-[20px] h-[20px] ml-2"
-                source={allImages.EditIcon}
-              />
+              <Text style={{color: '#1E1E1E', marginVertical: 4}}>
+                Change the content of the message, add the phone number of the
+                initial sender of the message, a specific word etc, to the
+                message you wish to forward.
+              </Text>
             </View>
-            <Text className=" border-b-[1px] border-primary "></Text>
-            <Text className="text-blackC2 mt-5 font-bold">From: </Text>
-            <Text className="text-primary  font-bold">
-              "{'Incoming Number'}"
-            </Text>
-            <Text className="text-primary  font-bold">"{'Message Body'}"</Text>
-            <Text>{''}</Text>
-          </View>
 
-          <View className=" my-2 border-[1px] border-primary rounded px-3">
-            <View className="flex-row justify-between items-center ">
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.goBack();
+            <View
+              style={{
+                marginVertical: 8,
+                borderWidth: 1,
+                borderColor: '#726DA8',
+                borderRadius: 4,
+                paddingHorizontal: 12,
+              }}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
                 }}>
+                <Text>{'       '}</Text>
+                <Text
+                  style={{
+                    color: '#1E1E1E',
+                    marginTop: 20,
+                    fontSize: 18,
+                    fontWeight: 600,
+                  }}>
+                  Message Template
+                </Text>
                 <Image
-                  style={{resizeMode: 'contain', tintColor: '#726DA8'}}
-                  className="w-[20px] h-[20px] ml-2"
-                  source={allImages.HelpCircle}
+                  style={{
+                    resizeMode: 'contain',
+                    tintColor: '#726DA8',
+                    width: 20,
+                    height: 20,
+                    marginLeft: 8,
+                  }}
+                  source={allImages.EditIcon}
                 />
-              </TouchableOpacity>
-              <Text className="text-blackC2 mt-5 text-lg font-semibold">
-                Replace words
+              </View>
+              <Text
+                style={{borderBottomWidth: 1, borderColor: '#726DA8'}}></Text>
+              <Text style={{color: '#1E1E1E', marginTop: 20, fontWeight: 700}}>
+                From:{' '}
               </Text>
-              <Text>{'         '}</Text>
+              <Text style={{color: '#726DA8', fontWeight: 700}}>
+                "{'Incoming Number'}"
+              </Text>
+              <Text style={{color: '#726DA8', fontWeight: 700}}>
+                "{'Message Body'}"
+              </Text>
+              <Text>{''}</Text>
             </View>
-            <Text className=" border-b-[1px] border-primary mb-5"></Text>
-            <CustomCheckbox
-              label="Use regular expression"
-              isChecked={isChecked3}
-              onChange={handleCheckboxChange3}
-            />
-            <View className="mb-4 w-full flex-row items-center justify-between px-1">
-              <View className="w-[40%] border-b-[1px] border-primary">
-                <TextInput
-                  className=" text-blackC"
-                  value={inputValues}
-                  onChangeText={setInputValues}
-                  placeholder="Old Word"
-                />
+
+            <View
+              style={{
+                marginVertical: 8,
+                borderWidth: 1,
+                borderColor: '#726DA8',
+                borderRadius: 4,
+                paddingHorizontal: 12,
+              }}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  marginTop: 20,
+                }}>
+                <TouchableOpacity>
+                  <Image
+                    style={{
+                      resizeMode: 'contain',
+                      tintColor: '#726DA8',
+                      width: 20,
+                      height: 20,
+                      marginLeft: 8,
+                    }}
+                    source={allImages.HelpCircle}
+                  />
+                </TouchableOpacity>
+                <Text
+                  style={{
+                    color: '#000',
+                    fontSize: 18,
+                    fontWeight: 600,
+                  }}>
+                  Replace words
+                </Text>
+                <Text>{'         '}</Text>
               </View>
-              <View>
-                <Image
-                  style={{resizeMode: 'contain', tintColor: '#726DA8'}}
-                  className="w-[20px] h-[20px] mx-1"
-                  source={allImages.RightArrow}
-                />
+              <Text
+                style={{
+                  borderBottomWidth: 1,
+                  borderColor: '#726DA8',
+                  marginBottom: 20,
+                }}></Text>
+              <CustomCheckbox
+                label="Use regular expression"
+                isChecked={isChecked3}
+                onChange={handleCheckboxChange3}
+              />
+              <View
+                style={{
+                  marginBottom: 16,
+                  width: '100%',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  paddingHorizontal: 4,
+                }}>
+                <View
+                  style={{
+                    width: '40%',
+                    borderBottomWidth: 1,
+                    borderColor: '#726DA8',
+                  }}>
+                  <TextInput
+                    style={{color: '#000'}}
+                    value={inputValues}
+                    onChangeText={setInputValues}
+                    placeholder="Old Word"
+                  />
+                </View>
+                <View>
+                  <Image
+                    style={{
+                      resizeMode: 'contain',
+                      tintColor: '#726DA8',
+                      width: 20,
+                      height: 20,
+                      marginHorizontal: 4,
+                    }}
+                    source={allImages.RightArrow}
+                  />
+                </View>
+                <View
+                  style={{
+                    width: '40%',
+                    borderBottomWidth: 1,
+                    borderColor: '#726DA8',
+                  }}>
+                  <TextInput
+                    style={{color: '#000'}}
+                    value={inputValues}
+                    onChangeText={setInputValues}
+                    placeholder="New Word"
+                  />
+                </View>
               </View>
-              <View className="w-[40%] border-b-[1px] border-primary">
-                <TextInput
-                  className=" text-blackC"
-                  value={inputValues}
-                  onChangeText={setInputValues}
-                  placeholder="New Word"
-                />
-              </View>
-            </View>
-            <View className="mb-4 w-full flex-row items-center justify-between px-1">
-              <View className="w-[40%] border-b-[1px] border-primary">
-                <TextInput
-                  className=" text-blackC"
-                  value={inputValues}
-                  onChangeText={setInputValues}
-                  placeholder="Old Word"
-                />
-              </View>
-              <View>
-                <Image
-                  style={{resizeMode: 'contain', tintColor: '#726DA8'}}
-                  className="w-[20px] h-[20px] mx-1"
-                  source={allImages.RightArrow}
-                />
-              </View>
-              <View className="w-[40%] border-b-[1px] border-primary">
-                <TextInput
-                  className=" text-blackC"
-                  value={inputValues}
-                  onChangeText={setInputValues}
-                  placeholder="New Word"
-                />
+
+              <View
+                style={{
+                  marginBottom: 16,
+                  width: '100%',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  paddingHorizontal: 4,
+                  marginBottom: 30,
+                }}>
+                <View
+                  style={{
+                    width: '40%',
+                    borderBottomWidth: 1,
+                    borderColor: '#726DA8',
+                  }}>
+                  <TextInput
+                    style={{color: '#000'}}
+                    value={inputValues}
+                    onChangeText={setInputValues}
+                    placeholder="Old Word"
+                  />
+                </View>
+                <View>
+                  <Image
+                    style={{
+                      resizeMode: 'contain',
+                      tintColor: '#726DA8',
+                      width: 20,
+                      height: 20,
+                      marginHorizontal: 4,
+                    }}
+                    source={allImages.RightArrow}
+                  />
+                </View>
+                <View
+                  style={{
+                    width: '40%',
+                    borderBottomWidth: 1,
+                    borderColor: '#726DA8',
+                  }}>
+                  <TextInput
+                    style={{color: '#000'}}
+                    value={inputValues}
+                    onChangeText={setInputValues}
+                    placeholder="New Word"
+                  />
+                </View>
               </View>
             </View>
           </View>
-        </View>
-        <View className="mx-5">
-          <View className="">
-            <Text className="text-blackC2 text-xl font-bold">
+        </ScrollView>
+
+        {/* 4th form */}
+        <View style={{marginHorizontal: 20}}>
+          <View>
+            <Text style={{color: '#1E1E1E', fontSize: 20, fontWeight: 700}}>
               More settings
             </Text>
-            <Text className="text-blackC2 my-1 font-semibold">Filter Name</Text>
+            <Text
+              style={{
+                color: '#1E1E1E',
+                marginVertical: 4,
+                fontWeight: 600,
+              }}>
+              Filter Name
+            </Text>
           </View>
 
-          <View className="w-full border-[1px] border-primary rounded px-3">
+          <View
+            style={{
+              width: '100%',
+              borderWidth: 1,
+              borderColor: '#726DA8',
+              borderRadius: 4,
+              paddingHorizontal: 12,
+            }}>
             <TextInput
-              className=" text-blackC"
+              style={{color: '#1E1E1E'}}
               value={inputValues4}
               onChangeText={setInputValues4}
             />
           </View>
-          <View className="">
-          
-
-         
-
-          <View className=" my-2 mt-5 border-[1px] border-primary rounded px-3">
-            <View className="flex-row justify-between items-center ">
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.goBack();
+          <View>
+            <View
+              style={{
+                marginVertical: 8,
+                borderWidth: 1,
+                borderColor: '#726DA8',
+                borderRadius: 4,
+                paddingHorizontal: 12,
+              }}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  marginTop: 20,
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
                 }}>
-                <Image
-                  style={{resizeMode: 'contain', tintColor: '#726DA8'}}
-                  className="w-[20px] h-[20px] ml-2"
-                  source={allImages.HelpCircle}
-                />
-              </TouchableOpacity>
-              <Text className="text-blackC2 mt-5 text-lg font-semibold">
-                Options
-              </Text>
-              <Text>{'         '}</Text>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.goBack();
+                  }}>
+                  <Image
+                    style={{
+                      resizeMode: 'contain',
+                      tintColor: '#726DA8',
+                      width: 20,
+                      height: 20,
+                      marginLeft: 8,
+                    }}
+                    source={allImages.HelpCircle}
+                  />
+                </TouchableOpacity>
+                <Text style={{color: '#1E1E1E', fontSize: 18, fontWeight: 600}}>
+                  Options
+                </Text>
+                <Text>{'         '}</Text>
+              </View>
+              <Text
+                className=" border-b-[1px] border-primary mb-5"
+                style={{
+                  borderBottomWidth: 1,
+                  borderColor: '#726DA8',
+                  marginBottom: 20,
+                }}></Text>
+              <CustomCheckbox
+                label="Show result notification"
+                isChecked={isChecked3}
+                onChange={handleCheckboxChange3}
+              />
+              <CustomCheckbox
+                label="Save Result"
+                isChecked={isChecked3}
+                onChange={handleCheckboxChange3}
+              />
             </View>
-            <Text className=" border-b-[1px] border-primary mb-5"></Text>
-            <CustomCheckbox
-              label="Show result notification"
-              isChecked={isChecked3}
-              onChange={handleCheckboxChange3}
-            />
-             <CustomCheckbox
-              label="Save Result"
-              isChecked={isChecked3}
-              onChange={handleCheckboxChange3}
-            />
-          
           </View>
-        
-         </View>
-          
         </View>
       </Swiper>
     </View>

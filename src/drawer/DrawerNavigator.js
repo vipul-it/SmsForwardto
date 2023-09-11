@@ -8,69 +8,137 @@ const Drawer = createDrawerNavigator();
 
 const CustomDrawerContent = ({navigation}) => (
   <View style={{flex: 1}}>
-    <View>
-      <TouchableOpacity onPress={() => navigation.navigate('Logs')}>
-        <Image
-          // className="w-[281px] h-[154px]"
-          style={{resizeMode: 'cover', width: 128, height: 154}}
-          source={allImages.BannerImage}
-        />
-      </TouchableOpacity>
+    <View style={{width: 280, height: 154}}>
+      <Image
+        style={{resizeMode: 'cover', width: '100%', height: '100%'}}
+        source={allImages.BannerImage}
+      />
     </View>
-    <View style={{marginTop: -20, marginRight: -4}}>
-      
-      <Text className="text-right text-whiteC text-[10px]">V0.0.1</Text>
+    <View style={{marginTop: -20, marginRight: 8}}>
+      <Text style={{textAlign: 'right', color: '#fff', fontSize: 10}}>
+        V0.0.1
+      </Text>
     </View>
-    <View className="mx-0 mt-3" style={{marginHorizontal: 0, marginTop: 12}}>
+    <View style={{marginVertical: 0, marginTop: 12}}>
       <TouchableOpacity
-        className="  text-lg text-blackC flex-row items-center px-8 h-14 border-b-[0.5px] border-Cgray50 "
+        style={{
+          fontSize: 18,
+          color: '#000000',
+          flexDirection: 'row',
+          alignItems: 'center',
+          paddingHorizontal: 32,
+          height: 56,
+          borderBottomWidth: 0.5,
+          borderColor: '#7F7F7F',
+        }}
         onPress={() => navigation.navigate('Logs')}>
         <Image
-          className="w-[18px] h-[18px] mr-4"
           source={allImages.LogsIcon}
-          style={{tintColor: 'black', resizeMode: 'contain'}}
+          style={{
+            tintColor: 'black',
+            resizeMode: 'contain',
+            width: 18,
+            height: 18,
+            marginRight: 16,
+          }}
         />
-        <Text className="  text-lg text-blackC ">Logs</Text>
+        <Text style={{fontSize: 18, color: '#000'}}>Logs</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        className="  text-lg text-blackC flex-row items-center px-8 h-14 border-b-[0.5px] border-Cgray50 "
+        style={{
+          fontSize: 18,
+          color: '#000000',
+          flexDirection: 'row',
+          alignItems: 'center',
+          paddingHorizontal: 32,
+          height: 56,
+          borderBottomWidth: 0.5,
+          borderColor: '#7F7F7F',
+        }}
         onPress={() => navigation.navigate('Inbox')}>
         <Image
-          className="w-[18px] h-[18px] mr-4"
           source={allImages.InboxIcon}
-          style={{tintColor: 'black', resizeMode: 'contain'}}
+          style={{
+            tintColor: 'black',
+            resizeMode: 'contain',
+            width: 18,
+            height: 18,
+            marginRight: 16,
+          }}
         />
-        <Text className="  text-lg text-blackC ">Inbox</Text>
+        <Text style={{fontSize: 18, color: '#000'}}>Inbox</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        className="  text-lg text-blackC flex-row items-center px-8 h-14 border-b-[0.5px] border-Cgray50 "
+        style={{
+          fontSize: 18,
+          color: '#000000',
+          flexDirection: 'row',
+          alignItems: 'center',
+          paddingHorizontal: 32,
+          height: 56,
+          borderBottomWidth: 0.5,
+          borderColor: '#7F7F7F',
+        }}
         onPress={() => navigation.navigate('Filter')}>
         <Image
-          className="w-[18px] h-[18px] mr-4"
           source={allImages.FilterIcon}
-          style={{tintColor: 'black', resizeMode: 'contain'}}
+          style={{
+            tintColor: 'black',
+            resizeMode: 'contain',
+            width: 18,
+            height: 18,
+            marginRight: 16,
+          }}
         />
-        <Text className="  text-lg text-blackC ">Filter</Text>
+        <Text style={{fontSize: 18, color: '#000'}}>Filter</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        className=" text-lg text-blackC flex-row items-center  border-Cgray50  px-8 h-14 border-b-[0.5px] border-Cgray50"
+        style={{
+          fontSize: 18,
+          color: '#000000',
+          flexDirection: 'row',
+          alignItems: 'center',
+          paddingHorizontal: 32,
+          height: 56,
+          borderBottomWidth: 0.5,
+          borderColor: '#7F7F7F',
+        }}
         onPress={() => navigation.navigate('Setting')}>
         <Image
-          className="w-[18px] h-[18px] mr-4"
           source={allImages.SettingIcon}
-          style={{tintColor: 'black', resizeMode: 'contain'}}
+          style={{
+            tintColor: 'black',
+            resizeMode: 'contain',
+            width: 18,
+            height: 18,
+            marginRight: 16,
+          }}
         />
-        <Text className="  text-lg text-blackC ">Settings</Text>
+        <Text style={{fontSize: 18, color: '#000'}}>Setting</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        className="  text-lg text-blackC flex-row items-center px-8 h-14 border-b-[0.5px] border-Cgray50 "
+        style={{
+          fontSize: 18,
+          color: '#000000',
+          flexDirection: 'row',
+          alignItems: 'center',
+          paddingHorizontal: 32,
+          height: 56,
+          borderBottomWidth: 0.5,
+          borderColor: '#7F7F7F',
+        }}
         onPress={() => navigation.navigate('Profile')}>
         <Image
-          className="w-[18px] h-[18px] mr-4"
           source={allImages.ProfileIcon}
-          style={{tintColor: 'black', resizeMode: 'contain'}}
+          style={{
+            tintColor: 'black',
+            resizeMode: 'contain',
+            width: 18,
+            height: 18,
+            marginRight: 16,
+          }}
         />
-        <Text className="  text-lg text-blackC ">Profile</Text>
+        <Text style={{fontSize: 18, color: '#000'}}>Profile</Text>
       </TouchableOpacity>
     </View>
   </View>

@@ -1,28 +1,35 @@
 import {View, Text, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
-import { allImages } from '../utils/images';
-import { useNavigation } from '@react-navigation/native';
+import {allImages} from '../utils/images';
+import {useNavigation} from '@react-navigation/native';
 
 const Inbox = () => {
   const navigation = useNavigation();
   return (
-    <View className="flex-1 bg-whiteC">
+    <View style={{flex: 1, backgroundColor: '#fff'}}>
       <TouchableOpacity
         onPress={() => {
           navigation.openDrawer();
         }}>
         <View
-          className="mx-5 my-5 flex-row items-center"
-          style={{resizeMode: 'contain'}}>
+          style={{
+            resizeMode: 'contain',
+            marginVertical: 20,
+            marginHorizontal: 20,
+            flexDirection: 'row',
+            alignItems: 'center',
+          }}>
           <Image
-            className="w-[34px] h-[34px] mr-5"
+            style={{width: 34, height: 34, marginRight: 20}}
             source={allImages.MenuIcon}
           />
-          <Text className="text-blackC2 text-lg font-semibold">Inbox</Text>
+          <Text style={{color: '#000', fontSize: 18, fontWeight: 600}}>
+            Inbox
+          </Text>
         </View>
       </TouchableOpacity>
-      <View className="flex-1 justify-center items-center">
-        <Text className="text-blackC2 font-medium">No Results</Text>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <Text style={{color: '#1E1E1E', fontWeight: 600}}>No Results</Text>
       </View>
     </View>
   );

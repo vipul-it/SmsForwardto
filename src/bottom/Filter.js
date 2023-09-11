@@ -28,32 +28,43 @@ const Filter = () => {
               width: 220,
             }}>
             <TouchableOpacity
-              className="justify-end flex-row"
               onPress={onClose}
-              style={{marginTop: 0}}>
+              style={{
+                marginTop: 0,
+                justifyContent: 'flex-end',
+                flexDirection: 'row',
+              }}>
               <Image
-                className="h-6 w-6 mb-2"
+                style={{height: 24, width: 24, marginBottom: 8}}
                 source={allImages.MenuCloseIcon}
               />
             </TouchableOpacity>
-            <Text className="text-blackC text-xl font-bold mb-2">
+            <Text
+              style={{
+                color: '#000',
+                fontSize: 20,
+                fontWeight: 700,
+                marginBottom: 8,
+              }}>
               Add Filter
             </Text>
             <TouchableOpacity
-              className=""
-              onPress={()=>{
+              onPress={() => {
                 navigation.navigate('AddSMSFilter');
               }}
               style={{marginTop: 10}}>
-              <Text className="text-blackC text-lg my-1">SMS Forward</Text>
+              <Text style={{color: '#000', fontSize: 18, marginVertical: 4}}>
+                SMS Forward
+              </Text>
             </TouchableOpacity>
             <TouchableOpacity
-              className=""
-              onPress={()=>{
+              onPress={() => {
                 navigation.navigate('AddNotificationFilter');
               }}
               style={{marginTop: 10}}>
-              <Text className="text-blackC text-lg my-1">Notification Forword</Text>
+              <Text style={{color: '#000', fontSize: 18, marginVertical: 4}}>
+                Notification Forword
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -70,31 +81,51 @@ const Filter = () => {
     setModalVisible(false);
   };
   return (
-    <View className="flex-1 bg-whiteC">
+    <View style={{flex: 1, backgroundColor: 'white'}}>
       <TouchableOpacity
         onPress={() => {
           navigation.openDrawer();
         }}>
         <View
-          className="mx-5 my-5 flex-row items-center"
-          style={{resizeMode: 'contain'}}>
+          style={{
+            marginHorizontal: 20,
+            marginVertical: 20,
+            flexDirection: 'row',
+            alignItems: 'center',
+            resizeMode: 'contain',
+          }}>
           <Image
-            className="w-[34px] h-[34px] mr-5"
+            style={{width: 34, height: 34, marginRight: 5}}
             source={allImages.MenuIcon}
           />
-          <Text className="text-blackC2 text-lg font-semibold">Filter</Text>
+          <Text style={{color: '#000', fontSize: 18, fontWeight: 600}}>
+            Filter
+          </Text>
         </View>
       </TouchableOpacity>
-      <View className="flex-1 justify-center items-center">
-        <Text className="text-blackC2 font-medium">
+      <View
+        style={{
+          flex: 1,
+          top: 80,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <Text style={{color: '#000', fontWeight: 500}}>
           Touch the '+' button to add a filter
         </Text>
       </View>
-      <View className="flex-row justify-end mb-24 mr-10">
+      <View
+        style={{
+          flex: 1,
+          flexDirection: 'row',
+          justifyContent: 'flex-end',
+          marginRight: 40,
+          position: 'relative',
+          top: 150,
+        }}>
         <TouchableOpacity onPress={openModal}>
           <Image
-            className="w-[95px] h-[44px]"
-            style={{resizeMode: 'contain'}}
+            style={{resizeMode: 'contain', width: 95, height: 44}}
             source={allImages.FilterPlusButton}
           />
         </TouchableOpacity>

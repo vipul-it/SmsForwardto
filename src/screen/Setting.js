@@ -9,25 +9,40 @@ const Setting = () => {
   const [status1, SetStatus1] = useState(true);
   const [status2, SetStatus2] = useState(false);
   return (
-    <View className="flex-1 bg-whiteC">
-      <View className="flex-row my-4 mx-5 items-center">
+    <View style={{flex: 1, backgroundColor: '#fff'}}>
+      <View
+        style={{
+          flexDirection: 'row',
+          marginHorizontal: 16,
+          marginVertical: 20,
+          alignItems: 'center',
+        }}>
         <TouchableOpacity
-          className="mr-[4%]"
+          style={{marginRight: '4%'}}
           onPress={() => {
             navigation.goBack();
           }}>
           <Image
-            style={{resizeMode: 'contain'}}
-            className="w-[30px] h-[30px]"
+            style={{resizeMode: 'contain', width: 30, height: 30}}
             source={allImages.BackArrowButton}
           />
         </TouchableOpacity>
-        <Text className="text-blackC2 text-lg font-semibold">Settings</Text>
+        <Text style={{color: '#1E1E1E', fontSize: 18, fontWeight: 600}}>
+          Settings
+        </Text>
       </View>
-      <View className="mx-5">
-        <Text className="text-primary font-semibold my-2">App Settings</Text>
-        <View className="my-3 flex-row justify-between items-center">
-          <Text className="text-blackC">Activate</Text>
+      <View style={{marginHorizontal: 20}}>
+        <Text style={{color: '#726DA8', fontWeight: 600, marginVertical: 8}}>
+          App Settings
+        </Text>
+        <View
+          style={{
+            marginVertical: 12,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+          <Text style={{color: '#000'}}>Activate</Text>
           <ToggleSwitch
             isOn={status1}
             onColor="#726DA8"
@@ -36,8 +51,14 @@ const Setting = () => {
             onToggle={() => SetStatus1(!status1)}
           />
         </View>
-        <View className="my-3 flex-row justify-between items-center">
-          <Text className="text-blackC">Show Result Notification</Text>
+        <View
+          style={{
+            marginVertical: 12,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+          <Text style={{color: '#000'}}>Show Result Notification</Text>
           <ToggleSwitch
             isOn={status1}
             onColor="#726DA8"
@@ -46,8 +67,14 @@ const Setting = () => {
             onToggle={() => SetStatus1(!isOn2)}
           />
         </View>
-        <View className="my-3 flex-row justify-between items-center">
-          <Text className="text-blackC">Save Result</Text>
+        <View
+          style={{
+            marginVertical: 12,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+          <Text style={{color: '#000'}}>Save Result</Text>
           <ToggleSwitch
             isOn={status2}
             onColor="#726DA8"
@@ -56,8 +83,14 @@ const Setting = () => {
             onToggle={() => SetStatus2(!status2)}
           />
         </View>
-        <View className="my-3 flex-row justify-between items-center">
-          <Text className="text-blackC">Use Foreground Services</Text>
+        <View
+          style={{
+            marginVertical: 12,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+          <Text style={{color: '#000'}}>Use Foreground Services</Text>
           <ToggleSwitch
             isOn={status2}
             onColor="#726DA8"
@@ -67,13 +100,19 @@ const Setting = () => {
           />
         </View>
       </View>
-      <Text className="border-b-[1px] border-gray-300"></Text>
-      <View className="mx-5 mt-4">
-        <Text className="text-primary font-semibold my-2">
+      <Text style={{borderBottomWidth: 1, borderColor: '#E0E0E0'}}></Text>
+      <View style={{marginHorizontal: 20, marginTop: 16}}>
+        <Text style={{color: '#726DA8', fontWeight: 600, marginVertical: 8}}>
           Sending Settings
         </Text>
-        <View className="my-3 flex-row justify-between items-center">
-          <Text className="text-blackC">Send While Roaming</Text>
+        <View
+          style={{
+            marginVertical: 12,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+          <Text style={{color: '#000'}}>Send While Roaming</Text>
           <ToggleSwitch
             isOn={status1}
             onColor="#726DA8"
@@ -82,8 +121,14 @@ const Setting = () => {
             onToggle={() => SetStatus1(!status1)}
           />
         </View>
-        <View className="my-3 flex-row justify-between items-center">
-          <Text className="text-blackC">Working Time</Text>
+        <View
+          style={{
+            marginVertical: 12,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+          <Text style={{color: '#000'}}>Working Time</Text>
           <ToggleSwitch
             isOn={status2}
             onColor="#726DA8"
@@ -92,8 +137,14 @@ const Setting = () => {
             onToggle={() => SetStatus2(!status2)}
           />
         </View>
-        <View className="my-3 flex-row justify-between items-center">
-          <Text className="text-blackC">Email Setting</Text>
+        <View
+          style={{
+            marginVertical: 12,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+          <Text style={{color: '#000'}}>Email Setting</Text>
           <ToggleSwitch
             isOn={status1}
             onColor="#726DA8"

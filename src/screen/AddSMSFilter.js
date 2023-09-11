@@ -15,33 +15,51 @@ const AddSMSFilter = () => {
   const navigation = useNavigation();
 
   return (
-    <View className="flex-1 bg-whiteC">
-      <View className="flex-row mt-4  mx-5 justify-between items-center">
-        <View className="flex-row items-center">
-        <TouchableOpacity
-          className="mr-[4%]"
-          onPress={() => {
-            navigation.goBack();
-          }}>
-          <Image
-            style={{resizeMode: 'contain'}}
-            className="w-[28px] h-[28px]"
-            source={allImages.BackArrowButton}
-          />
-        </TouchableOpacity>
-        <Text className="text-blackC2 my-2 text-lg font-semibold">
-          Add SMS Filter
-        </Text>
+    <View style={{flex: 1, backgroundColor: '#fff'}}>
+      <View
+        style={{
+          flexDirection: 'row',
+          marginTop: 16,
+          marginHorizontal: 20,
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <TouchableOpacity
+            style={{marginRight: '4%'}}
+            onPress={() => {
+              navigation.goBack();
+            }}>
+            <Image
+              style={{resizeMode: 'contain', width: 28, height: 28}}
+              source={allImages.BackArrowButton}
+            />
+          </TouchableOpacity>
+          <Text
+            style={{
+              color: '#1E1E1E',
+              marginVertical: 8,
+              fontSize: 18,
+              fontWeight: 600,
+            }}>
+            Add SMS Filter
+          </Text>
         </View>
-        <View className="">
-          <TouchableOpacity >
-        <Text className="text-primary my-2 text-lg font-bold">
-          Save
-        </Text>
-        </TouchableOpacity>
+        <View>
+          <TouchableOpacity>
+            <Text
+              style={{
+                color: '#726DA8',
+                marginVertical: 8,
+                fontSize: 18,
+                fontWeight: 700,
+              }}>
+              Save
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
-      
+
       <View style={styles.container}>
         <SwiperInputForm />
       </View>
