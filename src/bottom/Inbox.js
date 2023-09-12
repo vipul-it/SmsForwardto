@@ -1,10 +1,24 @@
 import {View, Text, TouchableOpacity, Image} from 'react-native';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {allImages} from '../utils/images';
 import {useNavigation} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import Users from '../common/Users';
 
 const Inbox = () => {
   const navigation = useNavigation();
+  useEffect(() => {
+    checkLogin();
+  }, []);
+
+  const checkLogin = async () => {
+    const id = await AsyncStorage.getItem('USERID');
+    if (id !== null) {
+      setLogg(true);
+    }
+  };
+
+  const [logg, setLogg] = useState(false);
   return (
     <View style={{flex: 1, backgroundColor: '#fff'}}>
       <TouchableOpacity
@@ -28,9 +42,13 @@ const Inbox = () => {
           </Text>
         </View>
       </TouchableOpacity>
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text style={{color: '#1E1E1E', fontWeight: 600}}>No Results</Text>
-      </View>
+      {logg ? (
+        <Users />
+      ) : (
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <Text style={{color: '#1E1E1E', fontWeight: 600}}>No Results</Text>
+        </View>
+      )}
     </View>
   );
 };

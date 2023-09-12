@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "83035553865",
+    "project_id": "chatapp-4119b",
+    "storage_bucket": "chatapp-4119b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:83035553865:android:930fa35bfda33ff848ff98",
+        "android_client_info": {
+          "package_name": "com.smsforward"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "83035553865-6gobv4ib10lqf90ddohnmu9urhsg2kfb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmdZA8YUWZtQr3bczBxoXSdJ-DaNYzwVw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "83035553865-6gobv4ib10lqf90ddohnmu9urhsg2kfb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
