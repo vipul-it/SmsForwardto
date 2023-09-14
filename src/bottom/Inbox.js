@@ -4,6 +4,7 @@ import {allImages} from '../utils/images';
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Users from '../common/Users';
+import SmsListener from '../common/SmsListener';
 
 const Inbox = () => {
   const navigation = useNavigation();
@@ -43,7 +44,8 @@ const Inbox = () => {
         </View>
       </TouchableOpacity>
       {logg ? (
-        <Users />
+        // <Users />
+        <SmsListener/>
       ) : (
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
           <Text style={{color: '#1E1E1E', fontWeight: 600}}>No Results</Text>

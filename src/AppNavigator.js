@@ -11,6 +11,7 @@ import Login from './screen/Login';
 import Signup from './screen/Signup';
 import Splash from './screen/Splash';
 import Chat from './screen/Chat';
+import GroupChat from './screen/GroupChat';
 
 const Stack = createStackNavigator();
 
@@ -61,6 +62,11 @@ const AppNavigator = () => {
         <Stack.Screen
           name="Chat"
           component={Chat}
+          options={{headerShown: true}}
+        />
+        <Stack.Screen
+          name="GroupChat"
+          component={GroupChat}
           options={{headerShown: true}}
         />
       </Stack.Navigator>

@@ -41,6 +41,7 @@ const Users = () => {
           });
         }
         setUsers(tempData);
+        
       });
   };
   return (

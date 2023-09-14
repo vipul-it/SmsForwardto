@@ -8,18 +8,18 @@ const Chat = () => {
   const [messageList, setMessageList] = useState([]);
   const route = useRoute();
   useEffect(() => {
-    const subscriber = firestore()
+    const myFunction = firestore()
       .collection('chats')
       .doc(route.params.id + route.params.data.userId)
       .collection('messages')
       .orderBy('createdAt', 'desc');
-    subscriber.onSnapshot(querysnapshot => {
+    myFunction.onSnapshot(querysnapshot => {
       const allmessages = querysnapshot.docs.map(item => {
         return {...item._data, createdAt: item._data.createdAt};
       });
       setMessageList(allmessages);
     });
-    return () => subscriber();
+    return () => myFunction();
   }, []);
 
   const onSend = useCallback(async (messages = []) => {
@@ -44,9 +44,10 @@ const Chat = () => {
       .collection('messages')
       .add(myMsg);
   }, []);
+  
 
   return (
-    <View style={{flex: 1,backgroundColor: '#3C3C3C'}}>
+    <View style={{flex: 1, backgroundColor: '#3C3C3C'}}>
       <GiftedChat
         messages={messageList}
         onSend={messages => onSend(messages)}

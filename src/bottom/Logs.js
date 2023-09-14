@@ -1,9 +1,8 @@
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image, TouchableOpacity, Button} from 'react-native';
 import React from 'react';
 import {allImages} from '../utils/images';
 import {useNavigation} from '@react-navigation/native';
-import SmsListener from '../common/SmsListener';
-import GroupChat from '../common/GroupChat';
+
 
 const Logs = () => {
   const navigation = useNavigation();
@@ -33,8 +32,11 @@ const Logs = () => {
       {/* <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <Text style={{color: '#1E1E1E', fontWeight: 500}}>No Logs</Text>
       </View> */}
-      {/* <SmsListener/> */}
-      <GroupChat/>
+      <Button onPress={()=>{
+        navigation.navigate('GroupChat')
+      }} title='Office Group'/>
+      
+      
     </View>
   );
 };
