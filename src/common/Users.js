@@ -49,9 +49,7 @@ const Users = () => {
         styles.container,
         {backgroundColor: mode == 'LIGHT' ? 'white' : '#3C3C3C'},
       ]}>
-      {/* <View style={styles.header}>
-          <Text style={styles.title}>RN Firebase Chat App</Text>
-        </View> */}
+      
       <FlatList
         data={users}
         renderItem={({item, index}) => {
@@ -87,11 +85,6 @@ const styles = StyleSheet.create({
     elevation: 5,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  title: {
-    color: 'purple',
-    fontSize: 20,
-    fontWeight: '600',
   },
   userItem: {
     width: Dimensions.get('window').width - 50,

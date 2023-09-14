@@ -2,9 +2,7 @@ import {View, Text} from 'react-native';
 import React, {useCallback, useEffect, useState} from 'react';
 import {GiftedChat} from 'react-native-gifted-chat';
 import {useRoute} from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import firestore from '@react-native-firebase/firestore';
-import uuid from 'react-native-uuid';
 
 const Chat = () => {
   const [messageList, setMessageList] = useState([]);
@@ -48,7 +46,7 @@ const Chat = () => {
   }, []);
 
   return (
-    <View style={{flex: 1, paddingBottom: 10}}>
+    <View style={{flex: 1,backgroundColor: '#3C3C3C'}}>
       <GiftedChat
         messages={messageList}
         onSend={messages => onSend(messages)}

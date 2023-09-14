@@ -5,6 +5,7 @@ import {
   TextInput,
   TouchableOpacity,
   Alert,
+  ScrollView,
 } from 'react-native';
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
@@ -53,7 +54,8 @@ const Login = () => {
     navigation.navigate('Parent');
   };
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
+    <View >
       <Text style={styles.title}>Login</Text>
 
       <TextInput
@@ -88,6 +90,7 @@ const Login = () => {
       </Text>
       <Loader visible={visible} />
     </View>
+    </ScrollView>
   );
 };
 
