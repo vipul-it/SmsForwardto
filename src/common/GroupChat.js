@@ -1,75 +1,72 @@
-import React, {Component} from 'react';
-import {View, Text, TextInput, Button, FlatList, Alert} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TextInput, Button, FlatList, Alert } from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 
-class GroupChat extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      message: '',
-      messages: [],
-    };
+const GroupChat = () => {
+  const [message, setMessage] = useState('');
+  const [messages, setMessages] = useState([]);
 
-    // Reference to the Firestore collection for messages
-    this.messagesCollection = firestore().collection('GroupChats');
-  }
+  const messagesCollection = firestore().collection('GroupChats');
+  let unsubscribe;
 
-  componentDidMount() {
+  useEffect(() => {
     // Attach a listener to fetch and display messages
-    this.unsubscribe = this.messagesCollection.onSnapshot(querySnapshot => {
+    unsubscribe = messagesCollection.onSnapshot((querySnapshot) => {
       const messages = [];
-      querySnapshot.forEach(doc => {
+      querySnapshot.forEach((doc) => {
         messages.push({
           id: doc.id,
           ...doc.data(),
         });
       });
-      this.setState({messages});
+      setMessages(messages);
     });
-  }
 
-  componentWillUnmount() {
-    // Unsubscribe from Firestore listener when the component unmounts
-    if (this.unsubscribe) {
-      this.unsubscribe();
-    }
-  }
+    return () => {
+      // Unsubscribe from Firestore listener when the component unmounts
+      if (unsubscribe) {
+        unsubscribe();
+      }
+    };
+  }, []);
 
-  sendMessage() {
-    const {message} = this.state;
+  const sendMessage = () => {
     if (message) {
       // Add a new message to Firestore
-      this.messagesCollection.add({
-        text: message,
-        timestamp: firestore.FieldValue.serverTimestamp(),
-      });
-      this.setState({message: ''});
+      messagesCollection
+        .add({
+          text: message,
+          timestamp: firestore.FieldValue.serverTimestamp(),
+        })
+        .then(() => {
+          setMessage('');
+        })
+        .catch((error) => {
+          console.error('Error sending message: ', error);
+        });
     }
-  }
+  };
 
-  render() {
-    return (
-      <View>
-        <FlatList
-          data={this.state.messages}
-          renderItem={({item}) => (
-            <>
-             
-              <Text>{item.text}</Text>
-              {/* <Text>{item.timestamp}</Text> */}
-            </>
-          )}
-          keyExtractor={item => item.id}
-        />
-        <TextInput
-          placeholder="Type your message..."
-          value={this.state.message}
-          onChangeText={text => this.setState({message: text})}
-        />
-        <Button title="Send" onPress={() => this.sendMessage()} />
-      </View>
-    );
-  }
-}
+  return (
+    <View>
+      <FlatList
+        data={messages}
+        renderItem={({ item }) => (
+          <>
+            <Text>{item.text}</Text>
+            {/* <Text>{item.timestamp}</Text> */}
+          </>
+        )}
+        keyExtractor={(item) => item.id}
+      />
+      <TextInput
+        placeholder="Type your message..."
+        value={message}
+        onChangeText={(text) => setMessage(text)}
+      />
+      <Button title="Send" onPress={sendMessage} />
+    </View>
+  );
+};
 
 export default GroupChat;
