@@ -5,12 +5,15 @@ import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Users from '../common/Users';
 import SmsListener from '../common/SmsListener';
+import messaging from '@react-native-firebase/messaging'
 
 const Inbox = () => {
   const navigation = useNavigation();
   useEffect(() => {
-    checkLogin();
+    // checkLogin();
+    getDeviceToken();
   }, []);
+
 
   const checkLogin = async () => {
     const id = await AsyncStorage.getItem('USERID');
@@ -18,6 +21,11 @@ const Inbox = () => {
       setLogg(true);
     }
   };
+
+  const getDeviceToken = async () =>{
+    let Token = await messaging().getToken();
+    console.log(Token);
+  }
 
   const [logg, setLogg] = useState(false);
   return (
@@ -44,8 +52,8 @@ const Inbox = () => {
         </View>
       </TouchableOpacity>
       {logg ? (
-        // <Users />
-        <SmsListener/>
+        <Users />
+        // <SmsListener/>
       ) : (
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
           <Text style={{color: '#1E1E1E', fontWeight: 600}}>No Results</Text>
